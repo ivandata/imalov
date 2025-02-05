@@ -1,0 +1,25 @@
+:root {
+  @import './tokens-map';
+  @each $name, $value in $tokens {
+    --#{$name}: #{$value};
+  }
+}
+
+[data-theme='classic'] {
+  @import './classic/tokens-map';
+  @each $name, $value in $tokens {
+    --#{$name}: #{$value};
+  }
+}
+[data-theme='dark'] {
+  @import './dark/tokens-map';
+  @each $name, $value in $tokens {
+    --#{$name}: #{$value};
+  }
+}
+[data-theme='light'] {
+  @import './light/tokens-map';
+  @each $name, $value in $tokens {
+    --#{$name}: #{$value};
+  }
+}

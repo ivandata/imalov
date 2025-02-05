@@ -1,0 +1,138 @@
+/// Placeholder
+/// @param {string} $color - The color of placeholder
+/// @access public
+/// @group typo
+@mixin form-placeholder($color) {
+  &::-webkit-input-placeholder { // WebKit browsers
+    color: $color !important;
+  }
+  &:-moz-placeholder { // Mozilla Firefox 4 to 18
+    color: $color !important;
+  }
+  &::-moz-placeholder { // Mozilla Firefox 19+
+    color: $color !important;
+  }
+  &:-ms-input-placeholder { // Internet Explorer 10+
+    color: $color !important;
+  }
+}
+
+/// TEXT
+/// @access public
+/// @group typo
+@mixin body-text-xs() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-xs);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+}
+
+@mixin body-text-s() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-s);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+}
+
+@mixin body-text-m() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-m);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+}
+
+@mixin body-text-l() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-l);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+}
+
+/// HEADING
+/// @access public
+/// @group typo
+@mixin font-heading-1() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-heading-1);
+  line-height: var(--font-height-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin font-heading-2() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-heading-2);
+  line-height: var(--font-height-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin font-heading-3() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-heading-3);
+  line-height: var(--font-height-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin font-heading-4() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-heading-4);
+  line-height: var(--font-height-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+@mixin font-heading-5() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-heading-5);
+  line-height: var(--font-height-heading);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+@mixin font-heading-6() {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-heading-6);
+  line-height: var(--font-height-heading);
+  font-weight: var(--font-weight-semi-bold);
+}
+
+
+/// ELEMENTS
+/// @access public
+/// @group typo
+@mixin font-label($max-width: 28rem) {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-s);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+  max-width: $max-width;
+}
+
+@mixin font-description($max-width: 32rem) {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-xs);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+  max-width: $max-width;
+  width: 75%;
+}
+
+@mixin font-error($max-width: 28rem) {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-body-size-xs);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+  max-width: $max-width;
+  width: 75%;
+}
+
+@mixin font-mono() {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-body-size-xs);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+}
+
+@mixin font-serif() {
+  font-family: var(--font-family-serif);
+  font-size: var(--font-body-size-m);
+  line-height: var(--font-height-body);
+  font-weight: var(--font-weight-normal);
+}

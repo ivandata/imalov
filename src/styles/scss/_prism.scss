@@ -1,0 +1,62 @@
+@mixin prism {
+  pre, code {
+    color: var(--color-prism-text)
+  }
+  pre {
+    background-color: var(--color-background-pre);
+
+    code {
+      background-color: var(--color-background-pre);
+    }
+  }
+
+  code {
+    background-color: var(--color-background-code);
+
+    &.language-text {
+      font-size: .9rem;
+    }
+  }
+
+  .token {
+    &.property {
+      color: var(--color-prism-property);
+    }
+
+    &.function {
+      color: var(--color-prism-function);
+    }
+
+    &.interpolation {
+      color: var(--color-prism-interpolation);
+    }
+
+    &.punctuation {
+      color: var(--color-prism-punctuation);
+    }
+
+    &.string {
+      color: var(--color-prism-string);
+    }
+
+    &.comment {
+      color: var(--color-prism-comment);
+    }
+
+    &.atrule {
+      color: var(--color-prism-atrule);
+    }
+
+    &.attr-value {
+      color: var(--color-prism-attr-val);
+    }
+
+    &.keyword {
+      color: var(--color-prism-keyword);
+    }
+
+    &.variable {
+      color: var(--color-prism-variable);
+    }
+  }
+}

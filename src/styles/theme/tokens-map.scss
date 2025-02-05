@@ -1,0 +1,66 @@
+
+$tokens: (
+  'border-element-01': 1px solid,
+  'border-element-02': 2px solid,
+  'border-radius-s': 6px,
+  'border-radius-m': 10px,
+  'border-radius-l': 14px,
+  'border-radius-xl': 50%,
+  // Font size
+  'font-base': 100%,
+  'font-family-sans': ''IBM Plex Sans', sans-serif',
+  'font-family-mono': ''IBM Plex Mono', monospace',
+  'font-family-serif': ''IBM Plex Serif', serif',
+  // Font size
+  'font-body-size-xs': 0.75rem,
+  // Font size
+  'font-body-size-s': 0.875rem,
+  // Font size
+  'font-body-size-m': 1rem,
+  // Font size
+  'font-body-size-l': 1.25rem,
+  // Font size
+  'font-heading-1': 2rem,
+  // Font size
+  'font-heading-2': 1.25rem,
+  // Font size
+  'font-heading-3': 1.25rem,
+  // Font size
+  'font-heading-4': 1rem,
+  // Font size
+  'font-heading-5': 1rem,
+  // Font size
+  'font-heading-6': 1rem,
+  // Font Weight
+  'font-weight-bold': 700,
+  // Font Weight
+  'font-weight-semi-bold': 500,
+  // Font Weight
+  'font-weight-normal': 400,
+  // Font Weight
+  'font-weight-light': 300,
+  // Line height
+  'font-height-body': 160%,
+  // Line height
+  'font-height-heading': 120%,
+  'box-shadow-01': (0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)),
+  'box-shadow-02': (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)),
+  'box-shadow-03': (0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)),
+  'box-shadow-04': (0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)),
+  'box-shadow-05': (0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)),
+  'spacing-layout-01': 1rem,
+  'spacing-layout-02': 1.5rem,
+  'spacing-layout-03': 2rem,
+  'spacing-layout-04': 3rem,
+  'spacing-layout-05': 4rem,
+  'spacing-layout-06': 6rem,
+  'spacing-layout-07': 10rem,
+  'spacing-content-01': 0.125rem,
+  'spacing-content-02': 0.25rem,
+  'spacing-content-03': 0.5rem,
+  'spacing-content-04': 0.75rem,
+  'spacing-content-05': 1rem,
+  'spacing-content-06': 1.5rem,
+  'spacing-content-07': 2rem,
+  'spacing-content-08': 2.5rem
+);

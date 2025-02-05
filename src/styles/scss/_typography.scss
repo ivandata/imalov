@@ -1,0 +1,84 @@
+@use "mixins/typo";
+
+@mixin typography {
+  p {
+    @include typo.font-serif();
+    margin: 0 0 var(--spacing-content-05);
+  }
+
+  .small, small {
+    @include typo.body-text-s();
+  }
+
+  b, strong {
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  code {
+    display: inline-block;
+    @include typo.font-serif();
+    font-family: var(--font-family-mono);
+    border-radius: var(--border-radius-s);
+    padding: 0 var(--spacing-content-02);
+  }
+
+  pre,
+  pre code {
+    @include typo.font-mono();
+  }
+
+  pre code {
+    padding: 0;
+  }
+
+  h1, .h1 {
+    @include typo.font-heading-1();
+    margin: 0 0 var(--spacing-content-06);
+  }
+
+  h2, .h2 {
+    @include typo.font-heading-2();
+    margin-top: var(--spacing-content-08);
+    margin-bottom: var(--spacing-content-05);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h3, .h3 {
+    @include typo.font-heading-3();
+    margin: var(--spacing-content-07) 0 var(--spacing-content-05);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h4, .h4 {
+    @include typo.font-heading-4();
+    margin: var(--spacing-content-06) 0 var(--spacing-content-04);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h5, .h5 {
+    @include typo.font-heading-5();
+    margin: var(--spacing-content-05) 0 var(--spacing-content-04);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h6, .h6 {
+    @include typo.font-heading-6();
+    margin: var(--spacing-content-05) 0 var(--spacing-content-04);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

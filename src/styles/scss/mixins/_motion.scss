@@ -1,0 +1,55 @@
+$duration-fast-short: 70; // Micro-interactions such as button and toggle
+$duration-fast-long: 110; // Micro-interactions such as fade
+$duration-moderate-short: 150; //	Micro-interactions, small expansion, short distance movements
+$duration-moderate-long: 240; // Expansion, system communication, toast
+$duration-slow-short: 400; // Large expansion, important system notifications
+$duration-slow-long: 700; // Background dimming
+
+/*
+* Common component easing's
+* @type Map
+*/
+$easing: (
+  standard: (
+    basic: cubic-bezier(0.2, 0, 0.38, 0.9),
+    accent: cubic-bezier(0.4, 0.14, 0.3, 1),
+  ),
+  entrance: (
+    basic: cubic-bezier(0, 0, 0.38, 0.9),
+    accent: cubic-bezier(0, 0, 0.3, 1),
+  ),
+  exit: (
+    basic: cubic-bezier(0.2, 0, 1, 0.9),
+    accent: cubic-bezier(0.4, 0.14, 1, 1),
+  ),
+);
+
+/*
+* Get the transition-timing-function for a given easing and motion mode
+* @param {String} $type - Can be `standard`, `entrance`, or `exit`
+* @param {String} $mode [basic] - Can be `basic` or `accent`
+* @param {Map} $easing [$easing] - Easing's map
+* @return {Function} CSS `cubic-bezier()` function
+*/
+@function getMotion($type, $mode: basic, $easing: $easing) {
+  @if map-has-key($easing, $type) {
+    $easing: map-get($easing, $type);
+    @if map-has-key($easing, $mode) {
+      @return map-get($easing, $mode);
+    } @else {
+      @error 'Unable to find a mode for the easing #{$easing} called: #{$mode}.';
+    }
+  } @else {
+    @error 'Unable to find an easing named #{$type} in our supported easings.';
+  }
+}
+
+/*
+* Set the transition-timing-function for a given easing and motion mode
+* @param {Number} $duration — The dynamic duration in ms
+* @param {String} $type - The name of the easing curve to apply
+* @param {String} $mode - The mode for the easing curve to use
+*/
+@mixin animation-motion($duration, $type, $mode) {
+  transition: ($duration + ms) getMotion($type, $mode);
+}
