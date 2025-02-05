@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/welcome.astro';
 import Layout from '../layouts/layout.astro';
+import ArticleList from '../components/article-list.svelte';
+import { Debug } from 'astro:components';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const siteMetadata = {
+	title: 'Blog',
+	keywords: 'Golang, JavaScript, TypeScript, CSS, UX, UI, design systems, HTML, performance, blog, web development, web',
+	description: 'Blog about Javascript, Golang, TypeScript, CSS, UX, UI, design systems, performance and web technologies.',
+	canonical: 'https://imalov.dev/'
+};
+
+function sortPosts(posts) {
+	return posts.sort((a, b) => {
+		return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+	});
+}
+
+const articles = sortPosts(Object.values(import.meta.glob('./articles/*.md', { eager: true })));
+
+const reactNotes = Object.values(import.meta.glob('./notes/react/*.md', { eager: true }));
+const typescriptNotes = Object.values(import.meta.glob('./notes/typescript/*.md', { eager: true }));
+
+const notes = sortPosts([...reactNotes, ...typescriptNotes]);
 ---
-
 <Layout>
-	<Welcome />
+	<section>
+		<header class="header">
+			<h1>Ivan Malov</h1>
+			<h2>
+				Berlin based Software Engineer. <br>
+				Reflection and longread's about the web development, design and interfaces.
+			</h2>
+		</header>
+
+		<ArticleList articles={articles} title="Articles" />
+		<ArticleList articles={notes} title="Notes and code snippets" />
+	</section>
 </Layout>
+
+<style>
+	.header {
+		margin-bottom: var(--spacing-layout-07);
+	}
+</style>
+
+<script>
+	document.body.setAttribute('data-theme', 'dark');
+</script>

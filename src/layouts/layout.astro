@@ -4,6 +4,8 @@
 import '@fontsource/ibm-plex-mono';
 import '@fontsource/ibm-plex-serif';
 import '@fontsource/ibm-plex-sans';
+import ScrollTopButton from '../components/scroll-top-button.svelte';
+import SchemeMenu from '../components/scheme-menu.svelte';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -18,45 +20,50 @@ const currentYear = new Date().getFullYear();
 	<slot name="head" />
 </head>
 
-<body class="layout">
-<header class="header">
-	<!--<SchemeMenu />-->
-</header>
-<main class="content">
-	<slot />
-</main>
-<footer class="footer">
-	<nav class="nav">
-		<a class="link" href="/uses/">Uses</a>
-		<a class="link" href="/about/">About</a>
-	</nav>
-	<small class="copyright">&copy; 2020-{currentYear} Ivan Malov</small>
-</footer>
-<div class="doodle">
-	<!--<CssDoodleComponent />-->
-</div>
-<!--<ScrollTopButton />-->
-<svg xmlns="http://www.w3.org/2000/svg" class="filter">
-	<defs>
-		<filter id="shadowed">
-			<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-			<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-			<feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-			<feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
-			<feOffset in="shadow" dx="1" dy="1" result="shadow" />
-			<feComposite in2="shadow" in="goo" result="goo" />
-			<feComposite in2="goo" in="SourceGraphic" result="mix" />
-		</filter>
-		<filter id="goo">
-			<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
-			<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-			<feComposite in2="goo" in="SourceGraphic" result="mix" />
-		</filter>
-	</defs>
-</svg>
+<body data-theme="dark" class="dark">
+	<div class="layout">
+		<header class="header">
+			<SchemeMenu />
+		</header>
+		<main class="content">
+			<slot />
+		</main>
+		<footer class="footer">
+			<nav class="nav">
+				<a class="link" href="/uses/">Uses</a>
+				<a class="link" href="/about/">About</a>
+			</nav>
+			<small class="copyright">&copy; 2020-{currentYear} Ivan Malov</small>
+		</footer>
+		<div class="doodle">
+			<!--<CssDoodleComponent />-->
+		</div>
+		<ScrollTopButton />
+		<svg xmlns="http://www.w3.org/2000/svg" class="filter">
+			<defs>
+				<filter id="shadowed">
+					<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+					<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+					<feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+					<feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+					<feOffset in="shadow" dx="1" dy="1" result="shadow" />
+					<feComposite in2="shadow" in="goo" result="goo" />
+					<feComposite in2="goo" in="SourceGraphic" result="mix" />
+				</filter>
+				<filter id="goo">
+					<feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+					<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+					<feComposite in2="goo" in="SourceGraphic" result="mix" />
+				</filter>
+			</defs>
+		</svg>
+	</div>
 </body>
 </html>
 
 <style is:global lang="sass">
 	@use '../styles/main.scss'
+</style>
+<style lang="sass">
+	@use './styles.scss'
 </style>
