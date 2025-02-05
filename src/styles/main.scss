@@ -1,0 +1,109 @@
+@use 'theme/themes.scss';
+@use 'scss/index.scss' ;
+@use 'scss/mixins/index.scss' as mixins;
+
+body {
+  background-color: var(--color-background-page-primary);
+  color: var(--color-text-primary);
+  height: 100%;
+  width: 100%;
+  transition-property: background-color;
+  transition-timing-function: ease-out;
+  transition-duration: 0.3s;
+  overflow-x: hidden;
+}
+
+// Dark mode images contrast
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: brightness(.8) contrast(1.2);
+  }
+}
+
+ol:not([class]), ul:not([class]) {
+  list-style-type: none;
+  margin: var(--spacing-content-05) 0;
+  padding: 0;
+  border: 0;
+  counter-reset: listitem;
+
+  li {
+    position: relative;
+    list-style-type: none;
+    margin: 0 0 var(--spacing-content-02) var(--spacing-content-01);
+    padding: 0 0 0 var(--spacing-content-05);
+    border: 0;
+    counter-increment: listitem;
+    color: var(--color-text-primary);
+    @include mixins.font-serif();
+
+    &:before {
+      display: inline-block;
+      position: absolute;
+      left: calc(-1 * var(--spacing-content-02));
+      margin-right: var(--spacing-content-02);
+      margin-bottom: var(--spacing-content-01);
+    }
+  }
+}
+
+ol:not([class]) > li:before {
+  content: counter(listitem) ".";
+}
+
+ul:not([class]) > li:before {
+  content: '\2013'
+}
+
+figcaption {
+  color: var(--color-text-secondary);
+  @include mixins.body-text-s();
+}
+
+blockquote {
+  position: relative;
+  font-style: italic;
+  letter-spacing: .01rem;
+  word-spacing: .05rem;
+  padding: 0 0 var(--spacing-content-05);
+
+  > * {
+    margin: 0;
+    &:before, &:after {
+      color: var(--color-text-secondary);
+    }
+    &:before {
+      content: '\201C';
+      margin-right: var(--spacing-content-03);
+    }
+    &:after {
+      content: '\201D';
+      margin-left: var(--spacing-content-03);
+    }
+  }
+}
+
+pre {
+  position: relative;
+  margin-left: calc(-1 *  var(--spacing-layout-02));
+  margin-right: calc(-1 *  var(--spacing-layout-02));
+  width: 100vw;
+  overflow-x: auto;
+  padding: var(--spacing-content-05) var(--spacing-layout-02) var(--spacing-content-05) var(--spacing-layout-02);
+}
+
+@include mixins.breakpoint('md') {
+  pre {
+    padding: var(--spacing-content-05) var(--spacing-layout-04);
+    margin-left: calc(-1 * var(--spacing-layout-04));
+    margin-right: calc(-1 * var(--spacing-layout-04));
+  }
+}
+
+@include mixins.breakpoint('lg') {
+  pre {
+    padding: var(--spacing-content-05) var(--spacing-layout-05);
+    margin-left: calc(-1 * var(--spacing-layout-05));
+    margin-right: calc(-1 * var(--spacing-layout-05));
+  }
+}

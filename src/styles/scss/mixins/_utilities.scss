@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 /// Map deep get
 /// @author Hugo Giraudel
 /// @param {Map} $map - Map
@@ -5,7 +7,7 @@
 /// @return {*} Desired value
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
-    $map: map-get($map, $key);
+    $map: map.get($map, $key);
   }
   @return $map;
 }
@@ -15,7 +17,7 @@
 /// @param {Integer} $index - Key chain
 /// @return {String} Desired value
 @function key-by-index($map, $index) {
-  $keys: map-keys($map);
+  $keys: map.keys($map);
   @return nth($keys, $index);
 }
 
@@ -24,5 +26,5 @@
 /// @return {*} Desired value
 @function last-map-item($map) {
   $total-length: length($map);
-  @return map-get($map, key-by-index($map, $total-length));
+  @return map.get($map, key-by-index($map, $total-length));
 }

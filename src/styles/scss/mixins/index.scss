@@ -1,6 +1,7 @@
-@use "breakpoint";
-@use "color";
-@use "convert";
-@use "motion";
-@use "typo";
-@use "utilities";
+@forward "breakpoint";
+@forward "color";
+@forward "convert";
+@forward "motion";
+@forward "utilities";
+
+@forward "typo";

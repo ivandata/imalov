@@ -1,25 +1,26 @@
+@use './tokens-map' as properties;
+@use './classic/tokens-map' as classic;
+@use './dark/tokens-map' as dark;
+@use './light/tokens-map' as light;
+
 :root {
-  @import './tokens-map';
-  @each $name, $value in $tokens {
+  @each $name, $value in properties.$tokens {
     --#{$name}: #{$value};
   }
 }
 
 [data-theme='classic'] {
-  @import './classic/tokens-map';
-  @each $name, $value in $tokens {
+  @each $name, $value in classic.$tokens {
     --#{$name}: #{$value};
   }
 }
 [data-theme='dark'] {
-  @import './dark/tokens-map';
-  @each $name, $value in $tokens {
+  @each $name, $value in dark.$tokens {
     --#{$name}: #{$value};
   }
 }
 [data-theme='light'] {
-  @import './light/tokens-map';
-  @each $name, $value in $tokens {
+  @each $name, $value in light.$tokens {
     --#{$name}: #{$value};
   }
 }
