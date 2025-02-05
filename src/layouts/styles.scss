@@ -4,10 +4,10 @@
   grid-template-rows: var(--spacing-layout-06) auto var(--spacing-layout-06) var(--spacing-layout-01);
   grid-template-columns: var(--spacing-layout-02) 1fr var(--spacing-layout-02);
   grid-template-areas:
-		"...... header ......"
-		"...... content ......"
-		"...... footer ......"
-		"...... doodle ......";
+    "...... header ......"
+    "...... content ......"
+    "...... footer ......"
+    "...... doodle ......";
 }
 
 @media (min-width: 768px) {
