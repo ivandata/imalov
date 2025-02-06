@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/layout.astro';
-import ArticleList from '../components/article-list.svelte';
+import ArticleList from '../components/article-list.astro';
 import { Debug } from 'astro:components';
 
 const siteMetadata = {
@@ -17,10 +17,8 @@ function sortPosts(posts) {
 }
 
 const articles = sortPosts(Object.values(import.meta.glob('./articles/*.md', { eager: true })));
-
 const reactNotes = Object.values(import.meta.glob('./notes/react/*.md', { eager: true }));
 const typescriptNotes = Object.values(import.meta.glob('./notes/typescript/*.md', { eager: true }));
-
 const notes = sortPosts([...reactNotes, ...typescriptNotes]);
 ---
 <Layout>
@@ -38,12 +36,8 @@ const notes = sortPosts([...reactNotes, ...typescriptNotes]);
 	</section>
 </Layout>
 
-<style>
+<style lang="scss">
 	.header {
 		margin-bottom: var(--spacing-layout-07);
 	}
 </style>
-
-<script>
-	document.body.setAttribute('data-theme', 'dark');
-</script>

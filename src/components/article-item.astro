@@ -1,12 +1,12 @@
-<script lang="ts">
-  export let article: { title: string; path: string; date: string; description: string };
+---
+const { article } = Astro.props;
 
-  function formatDate(dateStr: string) {
-    const date = new Date(dateStr);
-    const month = date.toLocaleString("en-us", { month: "long" });
-    return `${date.getDate()} ${month} ${date.getFullYear()}`;
-  }
-</script>
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  const month = date.toLocaleString("en-us", { month: "long" });
+  return `${date.getDate()} ${month} ${date.getFullYear()}`;
+}
+---
 
 <article class="item">
   <h4>

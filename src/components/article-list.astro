@@ -1,0 +1,19 @@
+---
+import ArticleItem from './article-item.astro';
+const { articles, title } = Astro.props;
+---
+
+<section class="list">
+  <header>
+    <h3>{title}</h3>
+  </header>
+  {articles.map(article => (
+    <ArticleItem article={article.frontmatter} />
+  ))}
+</section>
+
+<style lang="scss">
+  .list {
+    margin-top: var(--spacing-layout-05);
+  }
+</style>

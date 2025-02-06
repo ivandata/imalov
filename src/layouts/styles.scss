@@ -1,3 +1,5 @@
+@use '../styles/scss/mixins/index.scss' as mixins;
+
 .layout {
   height: 100%;
   display: grid;
@@ -31,11 +33,12 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-}
-.doodle > * {
-  position: absolute;
-  height: 100%;
-  width: 100%;
+
+  & > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .header {
@@ -54,14 +57,40 @@
 
 .nav {
   margin-left: calc(-1 * var(--spacing-content-03));
-}
 
-.link {
-  display: inline-block;
-  padding: var(--spacing-content-01) var(--spacing-content-03);
-  margin-right: 20px;
-  text-transform: uppercase;
-  text-decoration: none;
+  .link {
+    border: var(--border-element-02) transparent;
+    display: inline-block;
+    padding: var(--spacing-content-01) var(--spacing-content-03);
+    border-radius: var(--border-radius-s);
+    margin-right: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    outline: none;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    @include mixins.font-heading-5();
+
+    &:visited {
+      color: var(--text-color-primary);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-interactive-primary-focus);
+    }
+
+    &:hover {
+      color: var(--color-interactive-primary-above);
+      background-color: var(--color-interactive-primary-hover);
+    }
+
+    &:global(.active) {
+      cursor: default;
+      background-color: var(--color-interactive-primary-active);
+      color: var(--color-interactive-primary-above);
+    }
+  }
 }
 
 .footer {
@@ -70,4 +99,14 @@
   justify-content: space-between;
   align-items: center;
   grid-area: footer;
+}
+
+.filter {
+  z-index: -10000;
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
 }

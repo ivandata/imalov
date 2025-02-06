@@ -1,32 +1,47 @@
 <script lang="ts">
-  export let title: string;
-  export let aria: string;
-  export let disabled: boolean = false;
 
-  export let onKeydown: (e: KeyboardEvent) => void = () => {};
-  export let onKeyup: (e: KeyboardEvent) => void = () => {};
-  export let onMousedown: (e: MouseEvent) => void = () => {};
-  export let onMouseup: (e: MouseEvent) => void = () => {};
-  export let onClick: (e: MouseEvent) => void = () => {};
+ type keyboardProps = {
+   title: string,
+   aria: string,
+   disabled: boolean,
+   className: string
+   onButtonPress: (event) => void
+   onButtonRelease: (event) => void
+   onMouseEnter: (event) => void
+   onMouseLeave: (event) => void
+ }
+
+ let {
+   onButtonPress,
+   onButtonRelease,
+   onMouseEnter,
+   onMouseLeave,
+   title,
+   disabled = false,
+   aria,
+   className = ''
+ } = $props<keyboardProps>()
 </script>
 
 
 <button
-  class="button"
+  class="button {className}"
   type="button"
   {disabled}
   {title}
   aria-label={aria}
-  on:keydown={onKeydown}
-  on:keyup={onKeyup}
-  on:mousedown={onMousedown}
-  on:mouseup={onMouseup}
-  on:click={onClick}
+  onclick={onButtonPress}
+  onkeydown={onButtonPress}
+  onkeyup={onButtonRelease}
+  onmouseenter={onMouseEnter}
+  onmouseleave={onMouseLeave}
 >
   <slot></slot>
 </button>
 
-<style>
+<style lang="scss">
+  @use '../../styles/scss/mixins/motion' as motion;
+
   .button {
     display: flex;
     justify-content: center;
@@ -41,16 +56,16 @@
     fill: var(--color-text-invert);
     box-shadow: var(--box-shadow-01);
     line-height: var(--font-height-body);
-    transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow motion.$duration-moderate-long + ms motion.getMotion(standard, basic);
   }
 
   .button svg {
-      width: var(--font-body-size-m);
-      height: var(--font-body-size-m);
+    width: var(--font-body-size-m);
+    height: var(--font-body-size-m);
   }
 
   .button:focus {
-      border-color: var(--color-interactive-primary-focus);
+    border-color: var(--color-interactive-primary-focus);
   }
 
   .button:hover {
