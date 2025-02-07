@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/article.astro
 title: "Efficient React Development: The Power of Modular Organization"
 description: "A modular approach to the organization of React applications."
 keywords: "React applications, Modular approach, Code maintainability, Scalability, Collaboration, Component-based architecture, Development teams, Troubleshooting, Feature updates, Streamlining, Web development, Robustness, Flexibility, Sustainability"

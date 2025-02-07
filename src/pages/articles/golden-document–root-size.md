@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/article.astro
 title: "Golden document root size"
 description: "Why I prefer to use the default root document size and why it shouldn't be changed."
 keywords: "16px, golden ratio, typography, root document size, root, font-size, default size, scalable, visual rhythm, media queries, design system"

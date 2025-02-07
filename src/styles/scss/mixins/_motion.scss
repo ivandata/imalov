@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $duration-fast-short: 70; // Micro-interactions such as button and toggle
 $duration-fast-long: 110; // Micro-interactions such as fade
 $duration-moderate-short: 150; //	Micro-interactions, small expansion, short distance movements
@@ -32,10 +34,10 @@ $easing: (
 * @return {Function} CSS `cubic-bezier()` function
 */
 @function getMotion($type, $mode: basic, $easing: $easing) {
-  @if map-has-key($easing, $type) {
-    $easing: map-get($easing, $type);
-    @if map-has-key($easing, $mode) {
-      @return map-get($easing, $mode);
+  @if map.has-key($easing, $type) {
+    $easing: map.get($easing, $type);
+    @if map.has-key($easing, $mode) {
+      @return map.get($easing, $mode);
     } @else {
       @error 'Unable to find a mode for the easing #{$easing} called: #{$mode}.';
     }

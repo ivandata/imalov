@@ -1,9 +1,9 @@
 ---
-const { text, path, position = "top" } = Astro.props;
+const { text, path = '/', position = "top" } = Astro.props;
 ---
 
 <a
-  class:list={["back", {position}]}
+  class:list={["back", position]}
   href={path}
 >
   <span class="icon">
@@ -26,6 +26,9 @@ const { text, path, position = "top" } = Astro.props;
 </a>
 
 <style lang="scss">
+@use "../styles/scss/mixins/_breakpoint" as media;
+@use "../styles/scss/mixins/_typo" as typo;
+
 .back {
   margin-left: calc(-1 * var(--spacing-content-03));
   border: var(--border-element-02) transparent;
@@ -40,50 +43,58 @@ const { text, path, position = "top" } = Astro.props;
   text-transform: uppercase;
   position: relative;
   outline: none;
-  font-size: var(--font-heading-5);
+  @include typo.font-heading-5();
+
+  &.top {
+    margin-bottom: var(--spacing-layout-02);
+    margin-top: calc(0rem - var(--spacing-layout-06) + var(--spacing-layout-02));
   }
 
-.top {
-  margin-bottom: var(--spacing-layout-02);
-  margin-top: calc(0rem - var(--spacing-layout-06) + var(--spacing-layout-02));
+  &.bottom {
+    margin-top: var(--spacing-layout-02);
+    margin-bottom: calc(0rem - var(--spacing-layout-06) + var(--spacing-layout-02));
   }
 
-.bottom {
-  margin-top: var(--spacing-layout-02);
-  margin-bottom: calc(0rem - var(--spacing-layout-06) + var(--spacing-layout-02));
+  &:visited {
+    color: var(--text-color-primary);
   }
 
-.back:visited {
-  color: var(--text-color-primary);
+  &:focus {
+    border-color: var(--color-interactive-primary-focus);
+    outline-style: none;
   }
 
-.back:focus {
-  border-color: var(--color-interactive-primary-focus);
-  outline-style: none;
+  &:hover {
+    color: var(--color-interactive-primary-above);
+    background-color: var(--color-interactive-primary-hover);
+
+    svg {
+      fill: var(--color-interactive-primary-above);
+    }
   }
 
-.back:hover {
-  color: var(--color-interactive-primary-above);
-  background-color: var(--color-interactive-primary-hover);
+  svg {
+    fill: var(--color-text-primary);
   }
 
-.icon {
-  display: flex;
+  .icon {
+    display: flex;
   }
 
-.text {
-  margin-left: var(--spacing-content-03);
+  .text {
+    margin-left: var(--spacing-content-03);
   }
 
-.back svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--color-text-primary);
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-text-primary);
   }
+}
 
-@media (min-width: 768px) {
+@include media.breakpoint("md") {
   .back {
-  width: 182px;
+    width: 182px;
   }
-  }
+}
 </style>

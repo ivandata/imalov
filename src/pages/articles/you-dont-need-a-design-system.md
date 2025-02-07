@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/article.astro
 title: "You don't need a Design System"
 description: "Pros and cons of Design Systems, and their alternatives."
 keywords: "graphic design language, product design language, design language architecture, design language of a brand, design language system, design tokens figma, design tokens, design tokens json, design system, building design systems, atomic design, frontend architecture for design, Design Systems, Pros and Cons, Alternatives, User Interface (UI), Consistency, Collaboration, Efficiency, Standardization, Flexibility, Scalability, Design Process, User Experience (UX), Development Workflow, Implementation Challenges"

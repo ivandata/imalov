@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/article.astro
 title: "Another way to create themes"
 description: "How to write first tokens from scratch, generate themes from them, automate this process and further scale them."
 keywords: "Amazon Style Dictionary, tokens, css variables, design systems, create custom site theme, theme create site, site color theme, site change theme wordpress, website color theme, site dark theme, site design theme, theme site definition, site default theme, e commerce site themes, vue, vue-cli"
