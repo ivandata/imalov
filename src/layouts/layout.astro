@@ -10,10 +10,13 @@ import '@fontsource/ibm-plex-sans/700.css';
 import '@fontsource/ibm-plex-mono';
 
 import ScrollTopButton from '../components/scroll-top-button.svelte';
+import SocialBar from '../components/social/social-bar.svelte';
 import CssDoodleComponent from '../components/css-doodle/css-doodle.svelte';
 import SchemeMenu from '../components/scheme-menu.svelte';
+import GitHubIcon from '../assets/icons/social/github.svg'
 
 const currentYear = new Date().getFullYear();
+
 ---
 
 <html lang="en">
@@ -36,15 +39,16 @@ const currentYear = new Date().getFullYear();
 		</main>
 		<footer class="footer">
 			<nav class="nav">
-				<a class="link" href="/uses/">Uses</a>
 				<a class="link" href="/about/">About</a>
+				<a class="link" href="https://github.com/ivandata/imalov" target="_blank">Source code</a>
 			</nav>
+			<SocialBar client:idle />
 			<small class="copyright">&copy; 2020-{currentYear} Ivan Malov</small>
 		</footer>
 		<div class="doodle">
 			<CssDoodleComponent client:load  />
 		</div>
-		<ScrollTopButton  client:idle />
+		<ScrollTopButton client:idle />
 		<svg xmlns="http://www.w3.org/2000/svg" class="filter">
 			<defs>
 				<filter id="shadowed">
@@ -143,9 +147,6 @@ const currentYear = new Date().getFullYear();
 			text-transform: uppercase;
 			position: relative;
 			outline: none;
-			transition:
-				color motion.$duration-moderate-short + ms motion.getMotion(standard, basic),
-				background-color motion.$duration-moderate-short + ms motion.getMotion(standard, basic);
 			@include typo.font-heading-5();
 
 			&:visited {

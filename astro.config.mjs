@@ -16,5 +16,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
     syntaxHighlight: 'prism',
-  }
+  },
+  experimental: {
+    svg: true,
+  },
 });

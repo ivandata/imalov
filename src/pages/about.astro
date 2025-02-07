@@ -1,0 +1,175 @@
+---
+import BackLink from '../components/back-link.astro';
+import Layout from '../layouts/layout.astro';
+import { Image } from 'astro:assets';
+---
+<Layout>
+  <BackLink text="Back to the article list" />
+  <section>
+    <h1>About</h1>
+    <p>
+      I'm a Full stack developer with a robust expertise in front-end technologies, excelling in creating scalable web infrastructure and employs an extensive range of testing methods, including unit, e2e, and integration, to ensure the delivery of superior quality outputs.
+      I have a special passion for UI and UX. My primary role involves constructing our client-side infrastructure, strengthening the foundations of our front-end codebase, and enhancing user interface designs. I possess solid experience in building design systems.
+      Over the past few years, I have worked closely with both designers and developers to improve communication and collaboration between the two teams. I consider the creation and delivery of tools, patterns, components, and guidelines for designers and developers to be a crucial part of my work.
+    </p>
+  </section>
+
+  <section class="experience">
+    <header>
+      <h2>Key projects and work experience</h2>
+    </header>
+    <section>
+      <time>2024 - Current</time>
+      <h5>
+        <a title="Axel Springer National Media & Tech" href="https://career.axelspringer.com/de/national-media-tech" target="_blank">
+          Axel Springer National Media & Tech
+        </a>
+      </h5>
+      <p>
+        Since October 2024 I'm working at the technology division of Axel Springer SE, dedicated to driving innovation and digital transformation within the company’s media brands.
+      </p>
+    </section>
+    <section>
+      <time>2023 - 2024</time>
+      <h5>
+        <a title="Baupal" href="https://www.enter.de/" target="_blank">
+          Enter by baupal
+        </a>
+      </h5>
+      <p>
+        In 2023 and 2024, I have worked at the Enter — climate first start-up from Berlin. I'm responsible for everything on the front end, from and optimization of applications and tests, to architectural decisions.
+      </p>
+    </section>
+    <section>
+      <time>2021-2023</time>
+      <h5>
+        <a title="Homeday" href="https://www.homeday.de/" target="_blank">
+          Homeday
+        </a>
+      </h5>
+      <p>
+        From 2021 and until 2023, I've worked at the Homeday — one of the fastest-growing brokerage companies in Germany. We used modern technologies to simplify the process of buying and selling real estate.
+      </p>
+    </section>
+    <section>
+      <time>2020-2021</time>
+      <h5>
+        <a title="Greator" href="https://greator.com/" target="_blank">
+          Greator
+        </a>
+      </h5>
+      <p>
+        In 2020 and 2021 years, I helped to build Germany's leading coaching platform. We developed a mobile app using React Native and Amazon Web Services.
+      </p>
+    </section>
+
+    <section>
+      <time>2013-2020</time>
+      <h5>
+        <a
+          title="B2B Center"
+          href="https://www.b2b-center.ru/?lang=eng"
+          target="_blank"
+        >
+          B2B Center
+        </a>
+      </h5>
+      <p>From 2016 to 2020 I led a Front-end team of 4 people. I was responsible for:</p>
+      <ul>
+        <li>Led and Mentored Team</li>
+        <li>Coordinated Projects</li>
+        <li>Maintained Code Quality and Standards</li>
+        <li>Made Technical Decisions</li>
+      </ul>
+      <p>
+        In 2020, by my leadership, we developed <span>Master Bid (currently not available)</span> — the first cloud B2B platform for online tender procurement of goods and services in countries of the BRI region using the B2B Center Design System.
+      </p>
+      <p>
+        In 2019, closely with Design department my team developed from scratch <a
+        title="Center Design System"
+        href="https://cds.b2b-center.ru/"
+        target="_blank"
+      >CDS</a>
+        — the Design System for B2B Center. In 2020, I developed Master Bid (now currently not available) — the first cloud B2B platform for online tender procurement of goods and services in countries of the BRI region using the B2B Center Design System.
+      </p>
+      <p>During my work in the company from 2013 to 2016:</p>
+      <ul>
+        <li>Implemented an incremental build system. Images minify, ES6 babel compile, special SVG fallback sprite generator, and special React bundles by Webpack.</li>
+        <li>Created maintainable and scalable architecture using MCSS methodology, with PostCSS and LESS preprocessor.</li>
+        <li>Developed and implemented Ui-Kit. Component first library.</li>
+        <li>Big system refactoring for JS and LESS workflow.</li>
+      </ul>
+    </section>
+
+    <section>
+      <time>2017-2018</time>
+      <h5>
+        <a
+          title="EVEN Foundation site"
+          href="https://evenfound.org/"
+          target="_blank"
+        >
+          EVEN Foundation
+        </a>
+      </h5>
+      <p>
+        From 2017 to mid-2018, I was working part-time at EVEN mobile. EVEN
+        mobile dashboard for decentralized cross-chain platform. We used
+        Electron for a desktop app and Vue.js for web. I was a part of web
+        team.
+      </p>
+    </section>
+  </section>
+
+  <section>
+    <h2>Let’s work together</h2>
+    <p>
+      Write email to
+      <a href="mailto:hello@imalov.dev">hello@imalov.dev</a>
+    </p>
+    <p>
+      Download my
+      <a
+        href="https://imalov.dev/imalov_cv_2025.pdf"
+        target="_blank"
+        title="Ivan Malov Curriculum vitae"
+        @click="onCVClick"
+      >
+        Curriculum vitae
+      </a>
+    </p>
+  </section>
+</Layout>
+
+<style lang="scss">
+  @use '../styles/scss/mixins/_typo.scss';
+
+  time {
+    position: relative;
+    display: inline-block;
+    color: var(--color-text-secondary);
+    @include typo.font-mono();
+  }
+
+  h2 {
+    margin-bottom: var(--spacing-content-06);
+  }
+
+  h5 {
+    margin-top: 0;
+  }
+
+  section {
+    margin-bottom: var(--spacing-layout-05);
+
+    & > section + section {
+      margin-top: var(--spacing-layout-02);
+    }
+  }
+
+  .experience {
+    > section {
+      margin-bottom: 0;
+    }
+  }
+</style>
