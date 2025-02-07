@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/note.astro
 title: "React useEffect hook snippet"
 description: "A small snippet of how to use useEffect with mount and unmount lifecycle methods"
 keywords: "useEffect, Cleanup, unmount, mount, React, Technique"

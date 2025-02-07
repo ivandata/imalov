@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/note.astro
 title: "The main differences between interface and type in typescript"
 description: "The main differences between interface and type in typescript"
 keywords: "typescript, interface, type"

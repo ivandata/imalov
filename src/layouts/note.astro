@@ -1,0 +1,40 @@
+---
+import Layout from './layout.astro';
+import BackLink from '../components/back-link.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout url={frontmatter.url}>
+  <BackLink text="Back to the article list" position="top" />
+  <section>
+    <header class="header">
+      <h1>{frontmatter.title}</h1>
+    </header>
+    <article><slot /></article>
+  </section>
+  <BackLink text="Back to the article list" position="bottom" />
+</Layout>
+
+<style lang="scss">
+  @use "../styles/scss/mixins/typo" as typo;
+
+.header {
+  margin-bottom: var(--spacing-content-06);
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  time {
+    display: block;
+    color: var(--color-text-secondary);
+
+    @include typo.font-mono();
+  }
+}
+
+.featured {
+  margin-bottom: var(--spacing-content-06);
+}
+</style>

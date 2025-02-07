@@ -1,4 +1,5 @@
 ---
+layout: ../../../layouts/note.astro
 title: "How to use React forwardRef"
 description: "A small snippet of how to use React forwardRef technique with TypeScript"
 keywords: "TypeScript, React, Technique"
