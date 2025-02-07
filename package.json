@@ -15,11 +15,13 @@
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@fontsource/ibm-plex-serif": "^5.1.1",
     "astro": "^5.2.5",
+    "css-doodle": "^0.41.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "sass": "^1.83.4",
     "sharp": "^0.33.5",
     "svelte": "^5.19.7",
+    "tinycolor2": "^1.6.0",
     "typescript": "^5.7.3"
   },
   "devDependencies": {

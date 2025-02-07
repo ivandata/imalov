@@ -10,6 +10,7 @@ import '@fontsource/ibm-plex-sans/700.css';
 import '@fontsource/ibm-plex-mono';
 
 import ScrollTopButton from '../components/scroll-top-button.svelte';
+import CssDoodleComponent from '../components/css-doodle/css-doodle.svelte';
 import SchemeMenu from '../components/scheme-menu.svelte';
 
 const currentYear = new Date().getFullYear();
@@ -41,7 +42,7 @@ const currentYear = new Date().getFullYear();
 			<small class="copyright">&copy; 2020-{currentYear} Ivan Malov</small>
 		</footer>
 		<div class="doodle">
-			<!--<CssDoodleComponent />-->
+			<CssDoodleComponent client:load  />
 		</div>
 		<ScrollTopButton  client:idle />
 		<svg xmlns="http://www.w3.org/2000/svg" class="filter">
