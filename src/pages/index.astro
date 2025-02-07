@@ -1,14 +1,6 @@
 ---
 import Layout from '../layouts/layout.astro';
 import ArticleList from '../components/article-list.astro';
-import { Debug } from 'astro:components';
-
-const siteMetadata = {
-	title: 'Blog',
-	keywords: 'Golang, JavaScript, TypeScript, CSS, UX, UI, design systems, HTML, performance, blog, web development, web',
-	description: 'Blog about Javascript, Golang, TypeScript, CSS, UX, UI, design systems, performance and web technologies.',
-	canonical: 'https://imalov.dev/'
-};
 
 function sortPosts(posts) {
 	return posts.sort((a, b) => {
@@ -20,8 +12,20 @@ const articles = sortPosts(Object.values(import.meta.glob('./articles/*.md', { e
 const reactNotes = Object.values(import.meta.glob('./notes/react/*.md', { eager: true }));
 const typescriptNotes = Object.values(import.meta.glob('./notes/typescript/*.md', { eager: true }));
 const notes = sortPosts([...reactNotes, ...typescriptNotes]);
+
+const { url } = Astro.props;
+const seoData = {
+	title: 'Ivan Malov | Software Developer | JavaScript, Golang, UX, Design Systems',
+	canonical: new URL(url, Astro.site).pathname,
+	keywords: 'Golang, JavaScript, TypeScript, CSS, UX, UI, design systems, HTML, performance, blog, web development, web',
+};
+
 ---
 <Layout>
+	<title slot="head">{seoData.title}</title>
+	<meta name="keywords" content={seoData.keywords} slot="head"/>
+	<link rel="canonical" href={seoData.canonical} slot="head"/>
+
 	<section>
 		<header class="header">
 			<h1>Ivan Malov</h1>

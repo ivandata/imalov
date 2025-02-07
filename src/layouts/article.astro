@@ -2,10 +2,52 @@
 import { formatDate } from '../components/helpers';
 import Layout from './layout.astro';
 import BackLink from '../components/back-link.astro';
+import { trainCase } from 'change-case';
 
-const { frontmatter } = Astro.props;
+const { url, frontmatter } = Astro.props;
+const siteMetadata = {
+  siteUrl:  Astro.site,
+};
+
+const { title, description, keywords, date, image } = frontmatter;
+const postPath = new URL(url, siteMetadata.siteUrl).pathname;
+
+const seoData = {
+  title,
+  canonical: `${siteMetadata.siteUrl}/articles/${trainCase(title)}/`,
+  description,
+  keywords,
+  datePublished: formatDate(date),
+};
+const imageUrl = new URL(image.attrs, siteMetadata.siteUrl);
 ---
 <Layout url={frontmatter.url}>
+  <title slot="head">{seoData.title}</title>
+  <meta name="description" content={seoData.description} slot="head" />
+  <meta name="keywords" content={seoData.keywords} slot="head"/>
+  <meta property="article:published_time" content={seoData.datePublished} slot="head"/>
+  <link rel="canonical" href={seoData.canonical} slot="head"/>
+
+  <!-- Open Graph Meta -->
+  <meta property="og:url" content={postPath} slot="head"/>
+  <meta property="og:type" content="article" slot="head"/>
+  <meta property="og:title" content={title} slot="head"/>
+  <meta property="og:description" content={seoData.description} slot="head"/>
+  {imageUrl && <meta property="og:image" content={imageUrl} slot="head"/>}
+
+   <!--JSON-LD Schema-->
+  <script slot="head"  type="application/ld+json" set:html={JSON.stringify({
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": seoData.description,
+    "datePublished": seoData.datePublished,
+    "author": {
+      "name": "Ivan Malov <hello@imalov.dev> (imalov)"
+    },
+    "image": imageUrl || ''
+  })} />
+
   <BackLink text="Back to the article list" position="top" />
   <section>
     <header class="header">
@@ -13,14 +55,12 @@ const { frontmatter } = Astro.props;
       <time>{formatDate(frontmatter.date)} · <span>{frontmatter.timeToRead} min read</span></time>
     </header>
 
-    <!--{#if frontmatter.image}-->
-    <!--<figure class="featured">-->
-    <!--  <img src={article.image.attrs} alt={article.image.alt} />-->
-    <!--  {#if article.image.caption}-->
-    <!--  <figcaption>{@html article.image.caption}</figcaption>-->
-    <!--  {/if}-->
-    <!--</figure>-->
-    <!--{/if}-->
+    {image && (
+      <figure class="featured">
+        <img src={imageUrl.pathname} alt={image.alt || 'Article image'} />
+        {image.caption && <figcaption>{image.caption}</figcaption>}
+      </figure>
+    )}
 
     <article><slot /></article>
   </section>

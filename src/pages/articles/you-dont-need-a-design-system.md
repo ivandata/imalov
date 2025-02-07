@@ -5,7 +5,7 @@ description: "Pros and cons of Design Systems, and their alternatives."
 keywords: "graphic design language, product design language, design language architecture, design language of a brand, design language system, design tokens figma, design tokens, design tokens json, design system, building design systems, atomic design, frontend architecture for design, Design Systems, Pros and Cons, Alternatives, User Interface (UI), Consistency, Collaboration, Efficiency, Standardization, Flexibility, Scalability, Design Process, User Experience (UX), Development Workflow, Implementation Challenges"
 date: 2021-06-30
 image:
-    attrs: ./images/you_dont_need_the_design_system.png
+    attrs: /src/assets/images/you_dont_need_the_design_system.png
     alt: System approach
     caption: ''
 ---

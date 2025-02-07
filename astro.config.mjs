@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import svelte from '@astrojs/svelte';
 import getReadingTime from 'reading-time';
 import { toString } from 'mdast-util-to-string';
+import sitemap from '@astrojs/sitemap';
 
 export function remarkReadingTime() {
   return function (tree, { data }) {
@@ -12,7 +13,7 @@ export function remarkReadingTime() {
 }
 
 export default defineConfig({
-  integrations: [svelte()],
+  integrations: [svelte(), sitemap()],
   markdown: {
     remarkPlugins: [remarkReadingTime],
     syntaxHighlight: 'prism',
@@ -20,4 +21,6 @@ export default defineConfig({
   experimental: {
     svg: true,
   },
+  site: 'https://imalov.dev',
+  author: 'Ivan Malov <hello@imalov.dev> (imalov)'
 });

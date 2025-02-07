@@ -5,7 +5,7 @@ description: "Why I prefer to use the default root document size and why it shou
 keywords: "16px, golden ratio, typography, root document size, root, font-size, default size, scalable, visual rhythm, media queries, design system"
 date: 2020-12-28
 image:
-  attrs: ./images/tschichold_schreibt.jpg
+  attrs: /src/assets/images/tschichold_schreibt.jpg
   alt: Jan Tschichold
   caption: ''
 ---

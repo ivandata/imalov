@@ -348,7 +348,7 @@ new Vue({
 
 Let's launch our `npm run serve` app. In chrome developers tools, you should see two sets of variables assigned to the [root pseudo-class](https://developer.mozilla.org/ru/docs/Web/CSS/:root):
 
-![Two sets of variables assigned to the root pseudo-class](./images/root_pseudoclass_variables.png)
+![Two sets of variables assigned to the root pseudo-class](/src/assets/images/root_pseudoclass_variables.png)
 
 Tokens are in DOM. Now it remains to assign them to the elements of our app. Delete styles associated with the color in the *App.vue* and *HelloWorld.vue* files. The colors should be reset to default states in the browser. In the *styles.scss* file, assign tokens to the elements.
 
