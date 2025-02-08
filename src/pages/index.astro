@@ -13,18 +13,18 @@ const reactNotes = Object.values(import.meta.glob('./notes/react/*.md', { eager:
 const typescriptNotes = Object.values(import.meta.glob('./notes/typescript/*.md', { eager: true }));
 const notes = sortPosts([...reactNotes, ...typescriptNotes]);
 
-const { url } = Astro.props;
 const seoData = {
 	title: 'Ivan Malov | Software Developer | JavaScript, Golang, UX, Design Systems',
-	canonical: new URL(url, Astro.site).pathname,
+	canonical: Astro.site,
 	keywords: 'Golang, JavaScript, TypeScript, CSS, UX, UI, design systems, HTML, performance, blog, web development, web',
 };
 
 ---
 <Layout>
 	<title slot="head">{seoData.title}</title>
-	<meta name="keywords" content={seoData.keywords} slot="head"/>
-	<link rel="canonical" href={seoData.canonical} slot="head"/>
+	<link rel="canonical" href={seoData.canonical} />
+	<meta slot="head" name="keywords" content={seoData.keywords} />
+	<meta slot="head" name="decription" content="Ivan Malov | Software Developer | JavaScript, Golang, UX, Design Systems" />
 
 	<section>
 		<header class="header">

@@ -10,11 +10,11 @@ const siteMetadata = {
 };
 
 const { title, description, keywords, date, image } = frontmatter;
-const postPath = new URL(url, siteMetadata.siteUrl).pathname;
+const postPath = new URL(url, siteMetadata.siteUrl);
 
 const seoData = {
   title,
-  canonical: `${siteMetadata.siteUrl}/articles/${trainCase(title)}/`,
+  canonical: postPath,
   description,
   keywords,
   datePublished: formatDate(date),
@@ -29,11 +29,11 @@ const imageUrl = new URL(image?.attrs, siteMetadata.siteUrl);
   <link rel="canonical" href={seoData.canonical} slot="head"/>
 
   <!-- Open Graph Meta -->
-  <meta property="og:url" content={postPath} slot="head"/>
+  <meta property="og:url" content={seoData.canonical} slot="head"/>
   <meta property="og:type" content="article" slot="head"/>
   <meta property="og:title" content={title} slot="head"/>
   <meta property="og:description" content={seoData.description} slot="head"/>
-  {imageUrl && <meta property="og:image" content={imageUrl} slot="head"/>}
+  {image?.attrs && <meta property="og:image" content={imageUrl} slot="head"/>}
 
    <!--JSON-LD Schema-->
   <script slot="head"  type="application/ld+json" set:html={JSON.stringify({
@@ -55,7 +55,7 @@ const imageUrl = new URL(image?.attrs, siteMetadata.siteUrl);
       <time>{formatDate(frontmatter.date)} · <span>{frontmatter.timeToRead} min read</span></time>
     </header>
 
-    {image && (
+    {image?.attrs && (
       <figure class="featured">
         <img src={imageUrl.pathname} alt={image.alt || 'Article image'} />
         {image.caption && <figcaption>{image.caption}</figcaption>}

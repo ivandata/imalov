@@ -22,5 +22,8 @@ export default defineConfig({
     svg: true,
   },
   site: 'https://imalov.dev',
-  author: 'Ivan Malov <hello@imalov.dev> (imalov)'
+  i18n: {
+    locales: ["es", "en", "fr"],
+    defaultLocale: "en",
+  },
 });

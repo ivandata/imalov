@@ -4,6 +4,10 @@ import Layout from '../layouts/layout.astro';
 import { Image } from 'astro:assets';
 ---
 <Layout>
+
+  <title slot="head">Ivan Malov | About</title>
+  <meta slot="head" name="description" content="About Ivan Malov" />
+
   <BackLink text="Back to the article list" />
   <section>
     <h1>About</h1>
