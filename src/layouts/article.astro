@@ -19,7 +19,7 @@ const seoData = {
   keywords,
   datePublished: formatDate(date),
 };
-const imageUrl = new URL(image.attrs, siteMetadata.siteUrl);
+const imageUrl = new URL(image?.attrs, siteMetadata.siteUrl);
 ---
 <Layout url={frontmatter.url}>
   <title slot="head">{seoData.title}</title>
