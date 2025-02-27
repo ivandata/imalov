@@ -38,8 +38,6 @@
 :global {
   .social {
     display: flex;
-    margin-right: auto;
-    margin-left: var(--spacing-layout-06);
 
     a {
       display: inline-block;
@@ -58,6 +56,17 @@
         }
       }
     }
+  }
+
+  @media (min-width: 768px) {
+   .social {
+     margin-right: auto;
+     margin-left: var(--spacing-layout-06);
+   }
+  }
+
+  @media (min-width: 1024px) {
+
   }
 }
 </style>

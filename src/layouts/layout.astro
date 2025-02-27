@@ -37,11 +37,13 @@ const currentYear = new Date().getFullYear();
 				<slot />
 			</main>
 			<footer class="footer">
-				<nav class="nav">
-					<a class="link" href="/about/">About</a>
-					<a class="link" href="https://github.com/ivandata/imalov" target="_blank">Source code</a>
-				</nav>
-				<SocialBar client:idle />
+				<div class="links">
+					<nav class="nav">
+						<a class="link" href="/about/">About</a>
+						<a class="link" href="https://github.com/ivandata/imalov" target="_blank">Source code</a>
+					</nav>
+					<SocialBar client:idle />
+				</div>
 				<small class="copyright">&copy; 2020-{currentYear} Ivan Malov</small>
 			</footer>
 			<div class="doodle">
@@ -90,21 +92,6 @@ const currentYear = new Date().getFullYear();
     "...... doodle ......";
 	}
 
-	@media (min-width: 768px) {
-		.layout {
-			grid-template-columns: var(--spacing-layout-04) 1fr var(--spacing-layout-04);
-		}
-	}
-
-	@media (min-width: 1024px) {
-		.layout {
-			grid-template-columns: var(--spacing-layout-05) 1fr var(--spacing-layout-05);
-		}
-		.content {
-			max-width: 900px;
-		}
-	}
-
 	.doodle {
 		border-top: 2px solid #000;
 		grid-column: 1 / 4;
@@ -127,6 +114,13 @@ const currentYear = new Date().getFullYear();
 		grid-area: header;
 	}
 
+	.links {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
+
 	.content {
 		padding: var(--spacing-layout-06) 0;
 		max-width: 690px;
@@ -141,7 +135,7 @@ const currentYear = new Date().getFullYear();
 			display: inline-block;
 			padding: var(--spacing-content-01) var(--spacing-content-03);
 			border-radius: var(--border-radius-s);
-			margin-right: 20px;
+			margin: 0;
 			text-decoration: none;
 			text-transform: uppercase;
 			position: relative;
@@ -170,10 +164,16 @@ const currentYear = new Date().getFullYear();
 		}
 	}
 
+	.copyright {
+		text-align: left;
+		white-space: nowrap;
+		width: 100%;
+	}
+
 	.footer {
 		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
+		flex-direction: column;
+		justify-content: space-around;
 		align-items: center;
 		grid-area: footer;
 	}
@@ -186,5 +186,33 @@ const currentYear = new Date().getFullYear();
 		bottom: 0;
 		left: 0;
 		visibility: hidden;
+	}
+
+	@media (min-width: 768px) {
+		.layout {
+			grid-template-columns: var(--spacing-layout-04) 1fr var(--spacing-layout-04);
+		}
+
+		.copyright {
+			text-align: right;
+		}
+
+		.footer {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.link {
+			margin-right: 20px;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.layout {
+			grid-template-columns: var(--spacing-layout-05) 1fr var(--spacing-layout-05);
+		}
+		.content {
+			max-width: 900px;
+		}
 	}
 </style>
