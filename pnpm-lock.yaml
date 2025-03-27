@@ -24,8 +24,8 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5
       '@fontsource/ibm-plex-serif':
-        specifier: ^5.1.1
-        version: 5.1.1
+        specifier: ^5.2.5
+        version: 5.2.5
       astro:
         specifier: ^5.3.0
         version: 5.3.0(rollup@4.34.8)(sass@1.86.0)(typescript@5.7.3)
@@ -335,8 +335,8 @@ packages:
   '@fontsource/ibm-plex-sans@5.2.5':
     resolution: {integrity: sha512-W1kkC/fpDuoKQ5pNSQt/Bg0rpV9AATreA9ABwZf678AlwSCY2TQBT1YwAxxB65E9jcT/ysDrU1sGVNUyWCBXRw==}
 
-  '@fontsource/ibm-plex-serif@5.1.1':
-    resolution: {integrity: sha512-5EVMKXP2kT5/sufDp2Hw96Zz5C7J6oBq13OWIGn2uhtGAsuE5E+e6hhUl0TJK0+EHYTfCS85ylcY5Vk2Q6ht/Q==}
+  '@fontsource/ibm-plex-serif@5.2.5':
+    resolution: {integrity: sha512-0YyDEmqIqlMnPF/k1974zAJWjM9FNCg0TIYa9z6+W4koPmYf5llcOv6pqZK19zE/MnNxAJW0K18i5TEJE841YQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -2726,7 +2726,7 @@ snapshots:
 
   '@fontsource/ibm-plex-sans@5.2.5': {}
 
-  '@fontsource/ibm-plex-serif@5.1.1': {}
+  '@fontsource/ibm-plex-serif@5.2.5': {}
 
   '@humanfs/core@0.19.1': {}
 
