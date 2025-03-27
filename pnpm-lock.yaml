@@ -61,8 +61,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0(eslint@9.19.0)(typescript@5.7.3)
       '@stylistic/eslint-plugin-js':
-        specifier: ^3.0.1
-        version: 3.0.1(eslint@9.19.0)
+        specifier: ^4.2.0
+        version: 4.2.0(eslint@9.19.0)
       '@stylistic/eslint-plugin-ts':
         specifier: ^3.1.0
         version: 3.1.0(eslint@9.19.0)(typescript@5.7.3)
@@ -802,11 +802,11 @@ packages:
   '@shikijs/vscode-textmate@10.0.2':
     resolution: {integrity: sha512-83yeghZ2xxin3Nj8z1NMd/NCuca+gsYXswywDy5bHvwlWL8tpTQmzGeUuHd9FC3E/SBEMvzJRwWEOz5gGes9Qg==}
 
-  '@stylistic/eslint-plugin-js@3.0.1':
-    resolution: {integrity: sha512-hjp6BKXSUdlY4l20pDb0EjIB5PtQDGihk2EUKCjJ5gaRVfcmMMkaIyVd/yK3oH7OLxWWBxJ8qSSo+zEdkmpnYA==}
+  '@stylistic/eslint-plugin-js@4.2.0':
+    resolution: {integrity: sha512-MiJr6wvyzMYl/wElmj8Jns8zH7Q1w8XoVtm+WM6yDaTrfxryMyb8n0CMxt82fo42RoLIfxAEtM6tmQVxqhk0/A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
-      eslint: '>=8.40.0'
+      eslint: '>=9.0.0'
 
   '@stylistic/eslint-plugin-ts@3.1.0':
     resolution: {integrity: sha512-ExsbaLmPTt3Y9bWN64nw+hpsnLAScLH25ncPxrV16FG2Lvg5wn6aRfMqldUGpu+YdqVmFFU1zehgFh6RIHT6YA==}
@@ -3067,7 +3067,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@stylistic/eslint-plugin-js@3.0.1(eslint@9.19.0)':
+  '@stylistic/eslint-plugin-js@4.2.0(eslint@9.19.0)':
     dependencies:
       eslint: 9.19.0
       eslint-visitor-keys: 4.2.0
